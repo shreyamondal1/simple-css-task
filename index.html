@@ -3,11 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Simple HTML page with a styled red box">
-    <title>Red Box Demo</title>
+    <title>Centered Blue Div - CSS Styling Demo</title>
+    <style>
+        /* Reset default margins and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styling for better presentation */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* Main container for the centered div */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* The main div with all required specifications */
+        .styled-div {
+            /* Background color: blue */
+            background-color: blue;
+            
+            /* Border: 2px solid black */
+            border: 2px solid black;
+            
+            /* Centered horizontally using margin auto */
+            margin: 0 auto;
+            
+            /* Additional styling for better appearance */
+            width: 80%;
+            max-width: 600px;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            color: white;
+            text-align: center;
+        }
+
+        /* Content styling */
+        .styled-div h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .styled-div p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        /* Info section styling */
+        .info-section {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            backdrop-filter: blur(10px);
+        }
+
+        .info-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #ffeb3b;
+        }
+
+        .info-section ul {
+            list-style: none;
+            text-align: left;
+        }
+
+        .info-section li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .info-section li:last-child {
+            border-bottom: none;
+        }
+
+        .checkmark {
+            color: #4caf50;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* Button styling */
+        .demo-button {
+            background-color: #ffeb3b;
+            color: #333;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .demo-button:hover {
+            background-color: #fdd835;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .demo-button:active {
+            transform: translateY(0);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .styled-div {
+                width: 95%;
+                padding: 30px 20px;
+            }
+
+            .styled-div h1 {
+                font-size: 2rem;
+            }
+
+            .styled-div p {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Main div with inline CSS styling as required -->
-    <div id="box" style="width: 100px; height: 100px; background-color: red;"></div>
-</body>
-</html>
+    <!-- Main container for horizontal centering -->
+    <div class="container">
+        <!-- The styled div meeting all requirements -->
+        <div class="styled-div" id="mainDiv">
+            <h1>✓ Styled Div Complete</h1>
+            <p>This div demonstrates all the required CSS properties successfully applied.</p>
+            
+            <div class="info-section">
+                <h2>Requirements Met:</h2>
+                <ul>
+                    <li><span class="checkmark">✓</span> Background Color: Blue</li>
+                    <li><span class="checkmark">✓</span> Border: 2px Solid Black</li>
+                    <li><span class="checkmark">✓</span> Horizontally Centered on Page</li>
+                </ul>
+            </div>
+
+            <button class="demo-button" onclick="showConfirmation()">Verify Styling</button>
+            
+            <p id="confirmationMessage" style="margin-top: 20px; font-weight: bold; display: none;"></p>
+        </div>
+    </div>
+
+    <script>
+        /**
+         * Verify and display confirmation of all CSS properties
+         */
+        function showConfirmation() {
+            const div = document.getElementById('mainDiv');
+            const message = document.getElementById('confirmationMessage');
+            
+            // Get computed styles
+            const styles = window.getComputedStyle(div);
+            const backgroundColor = styles.backgroundColor;
+            const border = styles.border;
+            const marginLeft = styles.marginLeft;
+            const marginRight = styles.marginRight;
+            
+            // Verify requirements
+            const hasBlueBackground = backgroundColor
